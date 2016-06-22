@@ -171,9 +171,7 @@ class Google_Scholar_Publications {
         $fields = get_post_custom( $post_id );
         $field_data = $this->get_custom_fields_settings();
 
-        $html = '';
-
-        $html .= '<input type="hidden" name="2pmc_' . $this->token . '_noonce" id="2pmc_' . $this->token . '_noonce" value="' . wp_create_nonce( plugin_basename( $this->dir ) ) . '" />';
+        $html = '<input type="hidden" name="2pmc_' . $this->token . '_noonce" id="2pmc_' . $this->token . '_noonce" value="' . wp_create_nonce( plugin_basename( $this->dir ) ) . '" />';
 
         if ( 0 < count( $field_data ) ) {
             $html .= '<table class="form-table">' . "\n";
@@ -377,7 +375,7 @@ class Google_Scholar_Publications {
                 '<p>' . __('Things to remember when adding or editing a publication:') . '</p>' .
                 '<ul>' .
                 '<li>' . __('Specify the category for the publication. This can be the Journal this article was published in.') . '</li>' .
-                '<li>' . __('Specify the correct author of the publication. You can add multiple authors in a comma separated list.') . '</li>' .
+                '<li>' . __('Specify the correct author of the publication. You can add multiple authors in a semi-colon separated list.') . '</li>' .
                 '</ul>' .
                 '<p>' . __('If you want to schedule the publication to be published in the future:') . '</p>' .
                 '<ul>' .

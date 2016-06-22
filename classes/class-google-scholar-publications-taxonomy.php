@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
  * @package WordPress
  * @subpackage Google_Scholar_Publications
  * @category Plugin
- * @author Csaba Peter
+ * @author This code was borrowed and adopted from woothemese taxonomy class
  * @since 1.0.0
  */
 class Google_Scholar_Publications_Taxonomy {
