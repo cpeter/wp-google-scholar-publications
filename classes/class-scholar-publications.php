@@ -2,17 +2,17 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 
 /**
- * Google Scholar Publications
+ * Scholar Publications
  *
  * All functionality pertaining to the Publications feature.
  *
  * @package WordPress
- * @subpackage Google_Scholar_Publications
+ * @subpackage Scholar_Publications
  * @category Plugin
  * @author Csaba Peter
  * @since 1.0.0
  */
-class Google_Scholar_Publications {
+class Scholar_Publications {
     private $dir;
     private $assets_dir;
     private $assets_url;
@@ -71,25 +71,25 @@ class Google_Scholar_Publications {
      */
     public function register_post_type () {
         $labels = array(
-            'name' => _x( 'Publications', 'post type general name', 'google-scholar-publications' ),
-            'singular_name' => _x( 'Publication', 'post type singular name', 'google-scholar-publications' ),
-            'add_new' => _x( 'Add New', 'Publication', 'google-scholar-publications' ),
-            'add_new_item' => sprintf( __( 'Add New %s', 'google-scholar-publications' ), __( 'Publication', 'google-scholar-publications' ) ),
-            'edit_item' => sprintf( __( 'Edit %s', 'google-scholar-publications' ), __( 'Publication', 'google-scholar-publications' ) ),
-            'new_item' => sprintf( __( 'New %s', 'google-scholar-publications' ), __( 'Publication', 'google-scholar-publications' ) ),
-            'all_items' => sprintf( __( 'All %s', 'google-scholar-publications' ), __( 'Publications', 'google-scholar-publications' ) ),
-            'view_item' => sprintf( __( 'View %s', 'google-scholar-publications' ), __( 'Publication', 'google-scholar-publications' ) ),
-            'search_items' => sprintf( __( 'Search %a', 'google-scholar-publications' ), __( 'Publications', 'google-scholar-publications' ) ),
-            'not_found' =>  sprintf( __( 'No %s Found', 'google-scholar-publications' ), __( 'Publications', 'google-scholar-publications' ) ),
-            'not_found_in_trash' => sprintf( __( 'No %s Found In Trash', 'google-scholar-publications' ), __( 'Publications', 'google-scholar-publications' ) ),
+            'name' => _x( 'Publications', 'post type general name', 'scholar-publications' ),
+            'singular_name' => _x( 'Publication', 'post type singular name', 'scholar-publications' ),
+            'add_new' => _x( 'Add New', 'Publication', 'scholar-publications' ),
+            'add_new_item' => sprintf( __( 'Add New %s', 'scholar-publications' ), __( 'Publication', 'scholar-publications' ) ),
+            'edit_item' => sprintf( __( 'Edit %s', 'scholar-publications' ), __( 'Publication', 'scholar-publications' ) ),
+            'new_item' => sprintf( __( 'New %s', 'scholar-publications' ), __( 'Publication', 'scholar-publications' ) ),
+            'all_items' => sprintf( __( 'All %s', 'scholar-publications' ), __( 'Publications', 'scholar-publications' ) ),
+            'view_item' => sprintf( __( 'View %s', 'scholar-publications' ), __( 'Publication', 'scholar-publications' ) ),
+            'search_items' => sprintf( __( 'Search %a', 'scholar-publications' ), __( 'Publications', 'scholar-publications' ) ),
+            'not_found' =>  sprintf( __( 'No %s Found', 'scholar-publications' ), __( 'Publications', 'scholar-publications' ) ),
+            'not_found_in_trash' => sprintf( __( 'No %s Found In Trash', 'scholar-publications' ), __( 'Publications', 'scholar-publications' ) ),
             'parent_item_colon' => '',
-            'menu_name' => __( 'Publications', 'google-scholar-publications' )
+            'menu_name' => __( 'Publications', 'scholar-publications' )
 
         );
 
         // @todo check these lines
-        $single_slug = apply_filters( 'google_scholar_publications_single_slug', _x( 'publication', 'single post url slug', 'google-scholar-publications' ) );
-        $archive_slug = apply_filters( 'google_scholar_publications_archive_slug', _x( 'publications', 'post archive url slug', 'google-scholar-publications' ) );
+        $single_slug = apply_filters( 'scholar_publications_single_slug', _x( 'publication', 'single post url slug', 'scholar-publications' ) );
+        $archive_slug = apply_filters( 'scholar_publications_archive_slug', _x( 'publications', 'post archive url slug', 'scholar-publications' ) );
 
         $args = array(
             'labels' => $labels,
@@ -105,7 +105,7 @@ class Google_Scholar_Publications {
             'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
             'menu_position' => 5
         );
-        register_post_type( $this->token, apply_filters( 'google_scholar_publications_post_type_args', $args ) );
+        register_post_type( $this->token, apply_filters( 'scholar_publications_post_type_args', $args ) );
     } // End register_post_type()
 
     /**
@@ -115,7 +115,7 @@ class Google_Scholar_Publications {
      * @return void
      */
     public function register_taxonomy () {
-        $this->taxonomy_category = new Google_Scholar_Publications_Taxonomy(); // Leave arguments empty, to use the default arguments.
+        $this->taxonomy_category = new Scholar_Publications_Taxonomy(); // Leave arguments empty, to use the default arguments.
         $this->taxonomy_category->register();
     } // End register_taxonomy()
 
@@ -130,19 +130,19 @@ class Google_Scholar_Publications {
 
         $messages[$this->token] = array(
             0 => '', // Unused. Messages start at index 1.
-            1 => sprintf( __( 'Publication updated. %sView Publication%s', 'google-scholar-publications' ), '<a href="' . esc_url( get_permalink( $post_ID ) ) . '">', '</a>' ),
-            2 => __( 'Custom field updated.', 'google-scholar-publications' ),
-            3 => __( 'Custom field deleted.', 'google-scholar-publications' ),
-            4 => __( 'Publication updated.', 'google-scholar-publications' ),
+            1 => sprintf( __( 'Publication updated. %sView Publication%s', 'scholar-publications' ), '<a href="' . esc_url( get_permalink( $post_ID ) ) . '">', '</a>' ),
+            2 => __( 'Custom field updated.', 'scholar-publications' ),
+            3 => __( 'Custom field deleted.', 'scholar-publications' ),
+            4 => __( 'Publication updated.', 'scholar-publications' ),
             /* translators: %s: date and time of the revision */
-            5 => isset($_GET['revision']) ? sprintf( __( 'Publication restored to revision from %s', 'google-scholar-publications' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-            6 => sprintf( __( 'Publication published. %sView Publication%s', 'google-scholar-publications' ), '<a href="' . esc_url( get_permalink( $post_ID ) ) . '">', '</a>' ),
+            5 => isset($_GET['revision']) ? sprintf( __( 'Publication restored to revision from %s', 'scholar-publications' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+            6 => sprintf( __( 'Publication published. %sView Publication%s', 'scholar-publications' ), '<a href="' . esc_url( get_permalink( $post_ID ) ) . '">', '</a>' ),
             7 => __('Publication saved.'),
-            8 => sprintf( __( 'Publication submitted. %sPreview Publication%s', 'google-scholar-publications' ), '<a target="_blank" href="' . esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) . '">', '</a>' ),
-            9 => sprintf( __( 'Publication scheduled for: %1$s. %2$sPreview Publication%3$s', 'google-scholar-publications' ),
+            8 => sprintf( __( 'Publication submitted. %sPreview Publication%s', 'scholar-publications' ), '<a target="_blank" href="' . esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) . '">', '</a>' ),
+            9 => sprintf( __( 'Publication scheduled for: %1$s. %2$sPreview Publication%3$s', 'scholar-publications' ),
                 // translators: Publish box date format, see http://php.net/date
                 '<strong>' . date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ) . '</strong>', '<a target="_blank" href="' . esc_url( get_permalink($post_ID) ) . '">', '</a>' ),
-            10 => sprintf( __( 'Publication draft updated. %sPreview Publication%s', 'google-scholar-publications' ), '<a target="_blank" href="' . esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) . '">', '</a>' ),
+            10 => sprintf( __( 'Publication draft updated. %sPreview Publication%s', 'scholar-publications' ), '<a target="_blank" href="' . esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) . '">', '</a>' ),
         );
 
         return $messages;
@@ -156,7 +156,7 @@ class Google_Scholar_Publications {
      * @return void
      */
     public function meta_box_setup () {
-        add_meta_box( 'publication-data', __( 'Publication Details', 'google-scholar-publications' ), array( $this, 'meta_box_content' ), $this->token, 'normal', 'high' );
+        add_meta_box( 'publication-data', __( 'Publication Details', 'scholar-publications' ), array( $this, 'meta_box_content' ), $this->token, 'normal', 'high' );
     } // End meta_box_setup()
 
     /**
@@ -253,7 +253,7 @@ class Google_Scholar_Publications {
      */
     public function enter_title_here ( $title ) {
         if ( get_post_type() == $this->token ) {
-            $title = __( 'Enter the publication\'s name here', 'google-scholar-publications' );
+            $title = __( 'Enter the publication\'s name here', 'scholar-publications' );
         }
         return $title;
     } // End enter_title_here()
@@ -266,8 +266,8 @@ class Google_Scholar_Publications {
      * @return   void
      */
     public function enqueue_admin_styles () {
-        wp_register_style( 'google-scholar-publications-admin', $this->assets_url . '/css/admin.css', array(), '1.0.1' );
-        wp_enqueue_style( 'google-scholar-publications-admin' );
+        wp_register_style( 'scholar-publications-admin', $this->assets_url . '/css/admin.css', array(), '1.0.1' );
+        wp_enqueue_style( 'scholar-publications-admin' );
     } // End enqueue_admin_styles()
 
     /**
@@ -281,72 +281,72 @@ class Google_Scholar_Publications {
         // @todo add the category taxonomy (we can add publications to journals
 
         $fields['publisher'] = array(
-            'name' => __( 'Publisher', 'google-scholar-publications' )
+            'name' => __( 'Publisher', 'scholar-publications' )
         );
 
         $fields['authors'] = array(
-            'name' => __( 'Authors', 'google-scholar-publications' ),
-            'description' => __( 'Semi colon separated authors list (for example: Liu, Li ; Rannels, Stephen R.).', 'google-scholar-publications' )
+            'name' => __( 'Authors', 'scholar-publications' ),
+            'description' => __( 'Semi colon separated authors list (for example: Liu, Li ; Rannels, Stephen R.).', 'scholar-publications' )
         );
 
         $fields['journal_title'] = array(
-            'name' => __( 'Journal title', 'google-scholar-publications' ),
-            'description' => __( 'Enter the journal title the publication appears in.', 'google-scholar-publications' )
+            'name' => __( 'Journal title', 'scholar-publications' ),
+            'description' => __( 'Enter the journal title the publication appears in.', 'scholar-publications' )
         );
 
         $fields['date'] = array(
-            'name' => __( 'Date', 'google-scholar-publications' ),
-            'description' => __( 'The date of the publication.', 'google-scholar-publications' )
+            'name' => __( 'Date', 'scholar-publications' ),
+            'description' => __( 'The date of the publication.', 'scholar-publications' )
         );
 
         $fields['year'] = array(
-            'name' => __( 'Year', 'google-scholar-publications' ),
-            'description' => __( 'The year of the publication.', 'google-scholar-publications' )
+            'name' => __( 'Year', 'scholar-publications' ),
+            'description' => __( 'The year of the publication.', 'scholar-publications' )
         );
 
         $fields['volume'] = array(
-            'name' => __( 'Volume', 'google-scholar-publications' ),
-            'description' => __( 'Volume nubmber.', 'google-scholar-publications' )
+            'name' => __( 'Volume', 'scholar-publications' ),
+            'description' => __( 'Volume nubmber.', 'scholar-publications' )
         );
 
         $fields['issue'] = array(
-            'name' => __( 'Issue', 'google-scholar-publications' ),
-            'description' => __( 'Issue nubmber.', 'google-scholar-publications' )
+            'name' => __( 'Issue', 'scholar-publications' ),
+            'description' => __( 'Issue nubmber.', 'scholar-publications' )
         );
 
         $fields['firstpage'] = array(
-            'name' => __( 'First page', 'google-scholar-publications' ),
-            'description' => __( 'First page number the publication is located at.', 'google-scholar-publications' )
+            'name' => __( 'First page', 'scholar-publications' ),
+            'description' => __( 'First page number the publication is located at.', 'scholar-publications' )
         );
 
         $fields['lastpage'] = array(
-            'name' => __( 'Last page', 'google-scholar-publications' ),
-            'description' => __( 'Last page number the publication is located at.', 'google-scholar-publications' )
+            'name' => __( 'Last page', 'scholar-publications' ),
+            'description' => __( 'Last page number the publication is located at.', 'scholar-publications' )
         );
 
         $fields['issn'] = array(
-            'name' => __( 'ISSN', 'google-scholar-publications' ),
-            'description' => __( 'The ISSN of the publication/journal.', 'google-scholar-publications' )
+            'name' => __( 'ISSN', 'scholar-publications' ),
+            'description' => __( 'The ISSN of the publication/journal.', 'scholar-publications' )
         );
 
         $fields['isbn'] = array(
-            'name' => __( 'ISBN', 'google-scholar-publications' ),
-            'description' => __( 'The ISBN of the publication/journal.', 'google-scholar-publications' )
+            'name' => __( 'ISBN', 'scholar-publications' ),
+            'description' => __( 'The ISBN of the publication/journal.', 'scholar-publications' )
         );
 
         $fields['keywords'] = array(
-            'name' => __( 'Keywords', 'google-scholar-publications' ),
-            'description' => __( 'Comma separated list of keywords (for example: keyword1,keyword2).', 'google-scholar-publications' )
+            'name' => __( 'Keywords', 'scholar-publications' ),
+            'description' => __( 'Comma separated list of keywords (for example: keyword1,keyword2).', 'scholar-publications' )
         );
 
         $fields['pdf_url'] = array(
-            'name' => __( 'PDF URL', 'google-scholar-publications' ),
-            'description' => __( 'Enter a URL to the PDF file that has the publication details (for example: http://example.com/publication.pdf).', 'google-scholar-publications' ),
+            'name' => __( 'PDF URL', 'scholar-publications' ),
+            'description' => __( 'Enter a URL to the PDF file that has the publication details (for example: http://example.com/publication.pdf).', 'scholar-publications' ),
             'type' => 'url'
         );
 
         $fields['pmid'] = array(
-            'name' => __( 'PMID', 'google-scholar-publications' ),
+            'name' => __( 'PMID', 'scholar-publications' ),
         );
 
         foreach( $fields as $k => $v ) {
@@ -524,7 +524,7 @@ class Google_Scholar_Publications {
      * @return void
      */
     public function load_localisation () {
-        load_plugin_textdomain( 'google-scholar-publications', false, dirname( plugin_basename( $this->file ) ) . '/lang/' );
+        load_plugin_textdomain( 'scholar-publications', false, dirname( plugin_basename( $this->file ) ) . '/lang/' );
     } // End load_localisation()
 
     /**
@@ -533,7 +533,7 @@ class Google_Scholar_Publications {
      * @return  void
      */
     public function load_plugin_textdomain () {
-        $domain = 'google-scholar-publications';
+        $domain = 'scholar-publications';
         // The "plugin_locale" filter is also used in load_plugin_textdomain()
         $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 
@@ -560,7 +560,7 @@ class Google_Scholar_Publications {
      */
     private function register_plugin_version () {
         if ( $this->version != '' ) {
-            update_option( 'google-scholar-publications' . '-version', $this->version );
+            update_option( 'scholar-publications' . '-version', $this->version );
         }
     } // End register_plugin_version()
 

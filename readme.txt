@@ -1,28 +1,28 @@
-=== Google Scholar Publications ===
-Plugin Name: Google Scholar Publications
+=== Scholar Publications ===
+Plugin Name: Publication manager for Google Scholar
 Author: Csaba Peter
 Author URI: http://2pmc.net
 Contributors: csabap
 Donate link: http://wp.2pmc.net/gsp/#support
 Plugin URI: http://wp.2pmc.net/gsp/
 Version: 0.0.1
-Tags: Metadata, Google Scholar, Document Manager, Publication Manager, Posts
+Tags: Metadata, Scholar, Document Manager, Publication Manager, Posts
 Requires at least: 3.0
 Tested up to: 4.5.3
 Stable tag: 0.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-It allows to manage a publication repository and exposes metadata in order to be indexed by Google Scholar
+It allows to manage a publication repository and exposes metadata in order to be indexed by Scholar
 
 == Description ==
 
-It allows to manage a publication repository and exposes metadata in order to be indexed by Google Scholar
+It allows to manage a publication repository and exposes metadata in order to be indexed by Scholar
 
 
 == Installation ==
 
-1. Upload the `google-scholar-publications` directory to your wp-content/plugins/ directory.
+1. Upload the `scholar-publications` directory to your wp-content/plugins/ directory.
 2. Login to your WordPress Admin menu, go to Plugins, and activate it.
 3. Activate it through the plugin management screen.
 4. Start using it!
@@ -30,7 +30,7 @@ It allows to manage a publication repository and exposes metadata in order to be
 
 == Usage ==
 
-Start adding new publications. In the single pages the needed metadata is shown in order to get the publication indexed by Google Scholar.
+Start adding new publications. In the single pages the needed metadata is shown in order to get the publication indexed by Scholar.
 
 == License ==
 	
@@ -38,11 +38,11 @@ This plugin is free software; you can redistribute it and/or modify it under the
 
 == NEW FEATURE REQUESTS, BUG FIXES, ENHANCEMENTS ==
 
-You can post them on [GitHub Issues](https://github.com/cpeter/wp-google-scholar-publications/issues).
+You can post them on [GitHub Issues](https://github.com/cpeter/wp-scholar-publications/issues).
 
 == FURTHER QUESTIONS ==
 
-For questions either use the [Support forum](http://wordpress.org/support/plugin/google-scholar-publications) or [WordPress Answers](http://wordpress.stackexchange.com/) (just [ask your question](http://wordpress.stackexchange.com/questions/ask?tags=plugin-google-scholar-publications) using the 'plugin-google-scholar-publications' tag).
+For questions either use the [Support forum](http://wordpress.org/support/plugin/scholar-publications) or [WordPress Answers](http://wordpress.stackexchange.com/) (just [ask your question](http://wordpress.stackexchange.com/questions/ask?tags=plugin-scholar-publications) using the 'plugin-scholar-publications' tag).
 
 == Upgrade Notice ==
 

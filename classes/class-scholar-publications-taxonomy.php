@@ -2,17 +2,17 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 
 /**
- * Google Scholar Publications
+ * Scholar Publications
  *
  * Re-usable class for registering testimonial taxonomies.
  *
  * @package WordPress
- * @subpackage Google_Scholar_Publications
+ * @subpackage Scholar_Publications
  * @category Plugin
  * @author This code was borrowed and adopted from woothemese taxonomy class
  * @since 1.0.0
  */
-class Google_Scholar_Publications_Taxonomy {
+class Scholar_Publications_Taxonomy {
 	/**
 	 * The post type to register the taxonomy for.
 	 * @access  private
@@ -68,8 +68,8 @@ class Google_Scholar_Publications_Taxonomy {
 		$this->singular = esc_html( $singular );
 		$this->plural = esc_html( $plural );
 
-		if ( '' == $this->singular ) $this->singular = __( 'Journal', 'google-scholar-publications' );
-		if ( '' == $this->plural ) $this->plural = __( 'Journals', 'google-scholar-publications' );
+		if ( '' == $this->singular ) $this->singular = __( 'Journal', 'scholar-publications' );
+		if ( '' == $this->plural ) $this->plural = __( 'Journals', 'scholar-publications' );
 
 		$this->args = wp_parse_args( $args, $this->_get_default_args() );
 	} // End __construct()
@@ -102,17 +102,17 @@ class Google_Scholar_Publications_Taxonomy {
 	 */
 	private function _get_default_labels () {
 		return array(
-			    'name'                => sprintf( _x( '%s', 'taxonomy general name', 'google-scholar-publications' ), $this->plural ),
-			    'singular_name'       => sprintf( _x( '%s', 'taxonomy singular name', 'google-scholar-publications' ), $this->singular ),
-			    'search_items'        => sprintf( __( 'Search %s', 'google-scholar-publications' ), $this->plural ),
-			    'all_items'           => sprintf( __( 'All %s', 'google-scholar-publications' ), $this->plural ),
-			    'parent_item'         => sprintf( __( 'Parent %s', 'google-scholar-publications' ), $this->singular ),
-			    'parent_item_colon'   => sprintf( __( 'Parent %s:', 'google-scholar-publications' ), $this->singular ),
-			    'edit_item'           => sprintf( __( 'Edit %s', 'google-scholar-publications' ), $this->singular ),
-			    'update_item'         => sprintf( __( 'Update %s', 'google-scholar-publications' ), $this->singular ),
-			    'add_new_item'        => sprintf( __( 'Add New %s', 'google-scholar-publications' ), $this->singular ),
-			    'new_item_name'       => sprintf( __( 'New %s Name', 'google-scholar-publications' ), $this->singular ),
-			    'menu_name'           => sprintf( __( '%s', 'google-scholar-publications' ), $this->plural )
+			    'name'                => sprintf( _x( '%s', 'taxonomy general name', 'scholar-publications' ), $this->plural ),
+			    'singular_name'       => sprintf( _x( '%s', 'taxonomy singular name', 'scholar-publications' ), $this->singular ),
+			    'search_items'        => sprintf( __( 'Search %s', 'scholar-publications' ), $this->plural ),
+			    'all_items'           => sprintf( __( 'All %s', 'scholar-publications' ), $this->plural ),
+			    'parent_item'         => sprintf( __( 'Parent %s', 'scholar-publications' ), $this->singular ),
+			    'parent_item_colon'   => sprintf( __( 'Parent %s:', 'scholar-publications' ), $this->singular ),
+			    'edit_item'           => sprintf( __( 'Edit %s', 'scholar-publications' ), $this->singular ),
+			    'update_item'         => sprintf( __( 'Update %s', 'scholar-publications' ), $this->singular ),
+			    'add_new_item'        => sprintf( __( 'Add New %s', 'scholar-publications' ), $this->singular ),
+			    'new_item_name'       => sprintf( __( 'New %s Name', 'scholar-publications' ), $this->singular ),
+			    'menu_name'           => sprintf( __( '%s', 'scholar-publications' ), $this->plural )
 			  );
 	} // End _get_default_labels()
 
