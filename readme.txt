@@ -6,18 +6,18 @@ Contributors: csabap
 Donate link: http://wp.2pmc.net/gsp/#support
 Plugin URI: http://wp.2pmc.net/gsp/
 Version: 0.0.1
-Tags: Metadata, Scholar, Document Manager, Publication Manager, Posts
+Tags: Metadata, Scholar, Document Manager, Publication Manager, Posts, Journal, Article
 Requires at least: 3.0
 Tested up to: 4.5.3
 Stable tag: 0.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-It allows to manage a publication repository and exposes metadata in order to be indexed by Scholar
+It allows to manage a publication repository and exposes metadata in order to be indexed by Google Scholar
 
 == Description ==
 
-It allows to manage a publication repository and exposes metadata in order to be indexed by Scholar
+It allows to manage a publication repository and exposes metadata in order to be indexed by Google Scholar
 
 
 == Installation ==
@@ -30,7 +30,7 @@ It allows to manage a publication repository and exposes metadata in order to be
 
 == Usage ==
 
-Start adding new publications. In the single pages the needed metadata is shown in order to get the publication indexed by Scholar.
+Start adding new publications. In the single pages the needed metadata is shown in order to get the publication indexed by Google Scholar.
 
 == License ==
 	
