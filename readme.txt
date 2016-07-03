@@ -5,11 +5,11 @@ Author URI: http://2pmc.net
 Contributors: csabap
 Donate link: http://wp.2pmc.net/gsp/#support
 Plugin URI: http://wp.2pmc.net/gsp/
-Version: 0.0.1
+Version: 1.0.0
 Tags: Metadata, Scholar, Document Manager, Publication Manager, Posts, Journal, Article
 Requires at least: 3.0
 Tested up to: 4.5.3
-Stable tag: 0.0.1
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
